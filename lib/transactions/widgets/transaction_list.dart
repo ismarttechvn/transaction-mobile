@@ -69,16 +69,14 @@ class _TransactionsListState extends State<TransactionsList> {
 
   void _onScroll() {
     if (_isBottom) {
-      print(' is bottom');
       context.read<TransactionBloc>().add(TransactionFetched());
     }
   }
 
   bool get _isBottom {
-    // if (!_scrollController.hasClients) return false;
-    // final maxScroll = _scrollController.position.maxScrollExtent;
-    // final currentScroll = _scrollController.offset;
-    // return currentScroll >= (maxScroll * 0.9);
-    return true;
+    if (!_scrollController.hasClients) return false;
+    final maxScroll = _scrollController.position.maxScrollExtent;
+    final currentScroll = _scrollController.offset;
+    return currentScroll >= (maxScroll * 0.9);
   }
 }

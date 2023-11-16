@@ -295,7 +295,6 @@ class _TransactionCreatePageState extends State<TransactionCreatePage> {
     if (response.statusCode == 200) {
       final body = json.decode(response.body);
       final data = body['data']['result'] as List;
-      print(data);
       var list = data.map((dynamic json) {
         final map = json as Map<String, dynamic>;
         return CostCenter.fromJson(map);
